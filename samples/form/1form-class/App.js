@@ -1,7 +1,7 @@
 import React from "react";
-import "./Form.css";
+import "./App.css";
 
-class Form extends React.Component {
+class App extends React.Component {
   // 1. Поля класса (вместо конструктора)
   state = {
     input1: "",
@@ -131,4 +131,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default App;

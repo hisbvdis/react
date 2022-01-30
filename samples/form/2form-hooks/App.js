@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./Form.css";
+import { useState } from "react";
+import "./App.css";
 
-export default () => {
+const App = () => {
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [textarea, setTextarea] = useState("");
@@ -124,3 +124,5 @@ export default () => {
     </form>
   )
 }
+
+export default App;

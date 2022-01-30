@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "https://hisbvdis.github.io/react/projects/20220121-marvel",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
