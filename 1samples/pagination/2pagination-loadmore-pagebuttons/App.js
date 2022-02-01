@@ -7,8 +7,12 @@ const App = () => {
   const [users, setUsers] = useState([]);
   // 1.2. Переменная смещения
   const [offset, setOffset] = useState(0)
+  // 1.3. Количество элементов на странице
   const [itemsCountOnPage, setPageItemsCount] = useState(10);
+  // 1.4. Общее количество элементов
   const [total, setTotal] = useState(0);
+  // 1.5. Статус загрузки
+  const [loading, setLoading] = useState(false);
   
 
   // 2. Функции
@@ -24,23 +28,27 @@ const App = () => {
   }
   // 2.3. Функция загрузки дополнительных данных (для кнопки "Загрузить ещё")
   const loadMore = (index) => {
+    setLoading(true);
     loadData(index)
       .then(data => {
         // ДОПОЛНИТЬ массив пользователей
         setUsers( users.concat(data.data.results) );
         // УВЕЛИЧИТЬ переменную смещения
         setOffset(index + itemsCountOnPage);
+        setLoading(false);
       })
   }
   // 2.4. Функция загрузки данных с указанным смещением
   const loadNew = (index) => {
+    setLoading(true);
     loadData(index)
     .then(data => {
       // ЗАМЕНИТЬ массив пользователей
       setUsers( data.data.results );
       // УВЕЛИЧИТЬ переменную смещения
       setOffset(index + itemsCountOnPage);
-      })
+      setLoading(false);
+    })
   }
 
 
@@ -64,7 +72,8 @@ const App = () => {
       itemsCountOnPage={itemsCountOnPage}
       total={total}
       loadMore={loadMore}
-      loadNew={loadNew}/>
+      loadNew={loadNew}
+      loading={loading}/>
   </>)
 }
 
