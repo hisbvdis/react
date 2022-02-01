@@ -1,7 +1,7 @@
-const apiBase = "https://gateway.marvel.com:443/v1/public/";
+const baseURL = "https://gateway.marvel.com:443/v1/public/";
 const apiKey = "apikey=fa048bd5ea2cf04c794f49fdb2d0415a";
 
-export const getData = async (url) => {
+const getData = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Could not fetch ${url}, status: ${response.status}`);
@@ -10,12 +10,12 @@ export const getData = async (url) => {
 }
 
 export const getAllCharacters = async (offset) => {
-  const response = await getData(`${apiBase}characters?limit=9&offset=${offset}&${apiKey}`);
+  const response = await getData(`${baseURL}characters?limit=9&offset=${offset}&${apiKey}`);
   return response.data.results.map(cleanCharacterData);
 }
 
 export const getCharacter = async (id) => {
-  const response = await getData(`${apiBase}characters/${id}?${apiKey}`)
+  const response = await getData(`${baseURL}characters/${id}?${apiKey}`)
   return cleanCharacterData(response.data.results[0]);
 }
 
