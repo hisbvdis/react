@@ -20,12 +20,12 @@ export const AuthProvider = ({children}) => {
 
   // 3.2. Функции для изменения "Статуса авторизованности"
   const signIn = () => setAuth(true);
-  const signOut = () => setAuth(false);
+  const signOut = (cb) => setAuth(false);
 
   // 3.3. Данные контекста (доступные детям):
   // - статус авторизованности "auth"
   // - функции для изменения статуса авторизованности "signIn", "signOut"
-  const value = {isAuth, signIn, signOut};
+  const value = { isAuth, signIn, signOut };
   
   return(<>
     {/* 3.4. В компонент-провайдер передаётся value (данные контекста) */}

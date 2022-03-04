@@ -11,7 +11,7 @@ import Home from "./pages/Home.js";
 import Admin from "./pages/Admin.js";
 import Login from "./pages/Login.js";
 // 1.3. Компонент-провайдер контекста со статусом "авторизованности"
-import { AuthProvider } from "./hoc/AuthProvider.js";
+import { AuthProvider } from "./hoc/AuthContext.js";
 // 1.4. HOC проверки статуса "авторизованности"
 import RequireAuth from "./hoc/RequireAuth.js";
 
