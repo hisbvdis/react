@@ -1,5 +1,5 @@
 // ========================================================================
-// Компонент, создающий контекст и его компонент-провайдер
+// Контекст и его провайдер
 // ========================================================================
 
 // 1. Импортировать зависимости
@@ -10,27 +10,27 @@ import { useState } from "react";
 
 
 // 2. Создать контекст
-export const AuthContext = createContext(null);
+export const DataContext = createContext();
 
 
 // 3. Компонент, который работает с данными контекста и возвращает его провайдер
-export const AuthProvider = ({children}) => {
-  // 3.1. Состояние для хранения "Статуса авторизованности"
-  const [isAuth, setAuth] = useState(false);
+export const DataContextProvider = ({children}) => {
+  // 3.1. Состояние для хранения
+  const [num, setNum] = useState(0);
 
   // 3.2. Функции для изменения "Статуса авторизованности"
-  const signIn = () => setAuth(true);
-  const signOut = () => setAuth(false);
+  const increase = () => setNum(num + 1);
+  const decrease = () => setNum(num - 1);
 
   // 3.3. Сформировать данные контекста (для передачи потомкам)
-  // - auth: статус авторизованности
-  // - signIn/signOut: функции для изменения статуса авторизованности
-  const value = { isAuth, signIn, signOut };
+  // - num: число
+  // - increase/decrease: функции для изменения значения
+  const value = { num, increase, decrease };
   
   return(
     // 3.4. В компонент-провайдер передаётся value (данные контекста)
-    <AuthContext.Provider value={value}>
+    <DataContext.Provider value={value}>
       {children}
-    </AuthContext.Provider>
+    </DataContext.Provider>
   )
 }

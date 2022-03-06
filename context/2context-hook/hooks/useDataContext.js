@@ -1,18 +1,21 @@
 // =============================================================================
-// Хук, работающий с контекстом (получает из него данные)
+// Хук работы с контекстом
 // =============================================================================
 
 // 1. Импортировать зависимости
 // 1.1. Функция получения данных из контекста
 import { useContext } from "react";
 // 1.2. Контекст
-import { AuthContext } from "../contexts/AuthContext.js";
+import { DataContext } from "../contexts/DataContext.js";
 
 
 // 2. Создать хук
-export const useAuth = () => {
+const useDataContext = () => {
   // 2.1. Получить данные из контекста
-  const context = useContext(AuthContext);
+  const context = useContext(DataContext);
+
   // 2.2. Вернуть полученные данные
   return context;
 }
+
+export default useDataContext;

@@ -4,17 +4,17 @@
 
 // 1. Импортировать зависимости
 // 1.1. Компонент-провайдер контекста
-import { AuthProvider } from "./contexts/AuthContext.js";
+import { DataContextProvider } from "./contexts/DataContext.js";
 // 1.2. Дочерний компонент
 import Child from "./components/Child.js";
 
 
-// 2. Добавить самым верхним компонент-провайдер контекста "AuthProvider"
+// 2. Добавить самым верхним компонент-провайдер контекста "DataContextProvider"
 const App = () => {
   return (<>
-    <AuthProvider>
+    <DataContextProvider>
       <Child/>
-    </AuthProvider>
+    </DataContextProvider>
   </>)
 }
 
