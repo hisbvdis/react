@@ -10,7 +10,7 @@ import { Suspense } from "react"
 
 
 // 2. Создать ленивый компонент (импортировав с помощью "lazy")
-const LazyComponent = lazy(() => import("./LazyComponent.js"))
+const LazyComponent = lazy(() => import("./components/LazyComponent.js"))
 
 
 // 3. Создать основной компонент
