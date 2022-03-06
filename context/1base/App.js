@@ -1,23 +1,21 @@
 // =============================================================================
-// ДОЧЕРНИЙ КОМПОНЕНТ
+// Основной компонент
 // =============================================================================
 
 // 1. Импортировать зависимости
-// 1.1. Контекст
-import { AuthContext } from "./index.js";
-// 1.2. Хук получения данных из контекста
-import { useContext } from "react";
+// 1.1. Дочерний компонент
+import Child from './components/Child.js';
+// 1.2. Провайдер контекста
+import { DataContextProvider } from './contexts/DataContext.js';
 
 
-// 2. Создать компонент
+// 2. Добавить в разметку провайдер контекста
 const App = () => {
-  // 2.1. Получить данные из контекста
-  const context = useContext(AuthContext);
-  
-  // 2.2. Использовать данные из контекста
-  return (<>
-    <p>Авторизованность пользователя: {`${context.isAuth}`}</p>
-  </>)
+  return (
+    <DataContextProvider>
+      <Child />
+    </DataContextProvider>
+  )
 }
 
 export default App;

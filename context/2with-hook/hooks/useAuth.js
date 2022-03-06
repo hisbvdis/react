@@ -6,7 +6,7 @@
 // 1.1. Функция получения данных из контекста
 import { useContext } from "react";
 // 1.2. Контекст
-import { AuthContext } from "../hoc/AuthContext.js";
+import { AuthContext } from "../contexts/AuthContext.js";
 
 
 // 2. Создать хук
