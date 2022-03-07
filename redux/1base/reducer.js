@@ -1,51 +1,66 @@
-// ДЕЙСТВИЯ
-// Типы действий
+// =============================================================================
+// 1. ДЕЙСТВИЯ
+// =============================================================================
+// 1.1. Добавить типы действий
 const actionTypes = {
-  ADD: "ADD",
-  REMOVE: "REMOVE"
+  ADD_ITEM: "ADD_ITEM",
+  REMOVE_ITEM: "REMOVE_ITEM",
 }
-// Создатели действий
+
+
+// 1.2. Добавить действия
 const actions = {
-  addColor: (value) => ({
+  addItem: (value) => ({
     type: actionTypes.ADD,
     color: value
   }),
-  removeColor: (value) => ({
+  removeItem: (value) => ({
     type: actionTypes.REMOVE,
     color: value
-  })
+  }),
 }
 
 
-// РЕДЬЮСЕР
-const reducer = (state, action) => {
-  if (state === undefined) state = [];
 
+// =============================================================================
+// 2. НАЧАЛЬНОЕ СОСТОЯНИЕ
+// =============================================================================
+// 2.1. Задать начальное значение состояния
+const initialState = [];
+
+
+
+// =============================================================================
+// 3. РЕДЬЮСЕР
+// =============================================================================
+// 3.1. Создать редьюсер
+const items = (state=initialState, action) => {
   switch (action.type) {
     case "ADD":    return state.concat(action.color);
     case "REMOVE": return state.filter(item => item !== action.color)
+    default:       return state
   }
-
-  // Вернуть "state" в исходном виде (если тип действия не подошёл)
-  return state;
 }
 
 
-// ФУНКЦИЯ ПОДПИСКИ
+
+// =============================================================================
+// 4. РАБОТА С ХРАНИЛИЩЕМ
+// =============================================================================
+// 4.1. Создать функцию, которая будет вызываться при действиях с хранилищем
 const log = () => {
   console.log( store.getState() )
 }
 
+// 4.2. Создать хранилище (подставив редьюсер)
+const store = Redux.createStore(items);
 
-// РАБОТА С ХРАНИЛИЩЕМ
-// Создать хранилище (подставив редьюсер)
-const store = Redux.createStore(reducer);
-
-// Подписаться на изменения хранилища
+// 4.3. Подписаться на изменения хранилища
+// .. При каждом изменении вызывать функцию "log", созданную выше
 store.subscribe(log)
 
-// Выполнить действие
-store.dispatch( actions.addColor("blue") );
-store.dispatch( actions.addColor("yellow") );
-store.dispatch( actions.addColor("green") );
-store.dispatch( actions.removeColor("green") );
+// 4.4. Выполнить действия
+store.dispatch( actions.addItem("blue") );
+store.dispatch( actions.addItem("yellow") );
+store.dispatch( actions.addItem("green") );
+store.dispatch( actions.removeItem("green") );
