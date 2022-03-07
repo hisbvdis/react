@@ -15,10 +15,10 @@ export const DataContext = createContext();
 
 // 3. Компонент, который работает с данными контекста и возвращает его провайдер
 export const DataContextProvider = ({children}) => {
-  // 3.1. Состояние для хранения
+  // 3.1. Состояние контекста
   const [num, setNum] = useState(0);
 
-  // 3.2. Функции для изменения "Статуса авторизованности"
+  // 3.2. Функции для изменения состояния контекста
   const increase = () => setNum(num + 1);
   const decrease = () => setNum(num - 1);
 
