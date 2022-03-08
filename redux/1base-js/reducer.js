@@ -7,7 +7,6 @@ const actionTypes = {
   REMOVE_ITEM: "REMOVE_ITEM",
 }
 
-
 // 1.2. Добавить действия
 const actions = {
   addItem: (value) => ({
@@ -21,13 +20,11 @@ const actions = {
 }
 
 
-
 // =============================================================================
 // 2. НАЧАЛЬНОЕ СОСТОЯНИЕ
 // =============================================================================
-// 2.1. Задать начальное значение состояния
+// 2.1. Задать начальное состояние
 const initialState = [];
-
 
 
 // =============================================================================
@@ -36,12 +33,16 @@ const initialState = [];
 // 3.1. Создать редьюсер
 const items = (state=initialState, action) => {
   switch (action.type) {
-    case "ADD":    return state.concat(action.color);
-    case "REMOVE": return state.filter(item => item !== action.color)
-    default:       return state
+    case actionTypes.ADD_ITEM:
+      return state.concat(action.color);
+
+    case actionTypes.REMOVE_ITEM:
+      return state.filter(item => item !== action.color)
+
+    default:
+      return state
   }
 }
-
 
 
 // =============================================================================
@@ -49,6 +50,7 @@ const items = (state=initialState, action) => {
 // =============================================================================
 // 4.1. Создать функцию, которая будет вызываться при действиях с хранилищем
 const log = () => {
+  // Функция будет выводить содержимое состояния
   console.log( store.getState() )
 }
 

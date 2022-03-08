@@ -1,14 +1,16 @@
+// 1.Действия
+// 1.1. Добавить типы действий
 const actionTypes = {
   ADD_USER: "ADD_USER",
   REMOVE_USER: "REMOVE_USER",
   CHANGE_USER: "CHANGE_USER",
 }
 
+// 1.2. Добавить действия
 const actions = {
-  addUser: (name, salary) => ({
+  addUser: (name) => ({
     type: actionTypes.ADD_USER,
     name,
-    salary
   }),
   removeUser: (id) => ({
     type: actionTypes.REMOVE_USER,
@@ -22,33 +24,38 @@ const actions = {
   }),
 }
 
+
+// 2. Начальное состояние
+// 2.1. Задать начальное состояние
 const initialState = {
   list: [],
   nextId: 0,
 }
 
+
+// 3. Редьюсер
+// 3.1. Создать редьюсер
 const users = (state=initialState, action) => {
   switch (action.type) {
-    case actionTypes.ADD_USER: {
+    case actionTypes.ADD_USER:
       return {
         ...state,
         list: state.list.concat({
           id: state.nextId,
           name: action.name,
-          salary: action.salary,
           promo: false,
           favorite: false
         }),
         nextId: state.nextId + 1
       }
-    }
-    case actionTypes.REMOVE_USER: {
+
+    case actionTypes.REMOVE_USER:
       return {
         ...state,
         list: state.list.filter(user => user.id !== action.id)
       }
-    }
-    case actionTypes.CHANGE_USER: {
+    
+    case actionTypes.CHANGE_USER:
       return {
         ...state,
         list: state.list.map(user => {
@@ -61,12 +68,15 @@ const users = (state=initialState, action) => {
           return user;
         })
       }
-    }
-    default: {
+    
+    default:
       return state;
-    }
   }
 }
 
+
+// 4. Экспорт
+// 4.1. Именованный экспорт действий
 export { actions };
+// 4.2. Экспорт по умолчанию редьюсера
 export default users;
