@@ -32,5 +32,5 @@
 
 
 ## Источники
-- [ x ] Евгений Токмаков ([ссылка](https://tokmakov.msk.ru/blog/item/677))
-- [ x ] Михаил Непомнящий ([ссылка](https://youtu.be/jv0ckzkKYzU?t=583))
+- [x] Евгений Токмаков ([ссылка](https://tokmakov.msk.ru/blog/item/677))
+- [x] Михаил Непомнящий ([ссылка](https://youtu.be/jv0ckzkKYzU?t=583))

@@ -12,4 +12,4 @@
 
 
 ## Источники
-- [ x ] Документация React ([ссылка](https://ru.reactjs.org/docs/code-splitting.html#reactlazy))
+- [x] Документация React ([ссылка](https://ru.reactjs.org/docs/code-splitting.html#reactlazy))
