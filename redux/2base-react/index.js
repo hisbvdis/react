@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 
 // 1. Импортировать зависимости
@@ -15,12 +15,13 @@ import counter from "./reducers/counter.js";
 // 2.1. В аргумент передаётся редьюсер
 const store = createStore(counter);
 
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
 
 // 3. Поместить провайдер в рендеринг
-ReactDOM.render(
-    // 3.1. В свойство "store" передать созданное хранилище
-    <Provider store={store}>
-      <App />
-    </Provider>,
-  document.getElementById('root')
+root.render(
+  // 3.1. В свойство "store" передать созданное хранилище
+  <Provider store={store}>
+    <App />
+  </Provider>,
 );
