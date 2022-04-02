@@ -2,12 +2,12 @@
 // ИСПОЛЬЗОВАНИЕ ХУКА
 // =====================================================================
 // 0. ИМПОРТИРОВАТЬ ХУК
-import useInputWithValidate from "./hooks/useInputWithValidate.js";
+import useInputValidate from "./hooks/useInputValidate.js";
 
 const App = () => {
   // =============== 1. ПОЛУЧИТЬ ДОСТУП К ФУНКЦИОНАЛУ ХУКА ================
-  const name = useInputWithValidate("");
-  const surname = useInputWithValidate("");
+  const name = useInputValidate("");
+  const surname = useInputValidate("");
 
 
   // ================== 2. ИСПОЛЬЗОВАТЬ ФУНКЦИОНАЛ ХУКА ===================
