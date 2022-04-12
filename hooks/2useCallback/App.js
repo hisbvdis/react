@@ -6,18 +6,9 @@ const App = () => {
   // 1. Состояние, при изменении которого весь компонент обновляется
   const [state, setState] = useState(0);
 
-  // 2. Так как функция "getData" создаётся в теле компонента, она будет
-  // ..загружать данные при каждом обновлении компонента
-  const getData__example = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos/1")
-      .then(response => response.json())
-      .then(data => {
-        console.log( data );
-        return data;
-      })
-  }
-
-  // 3. Чтобы функция не выполнялась каждый раз, она помещается в "useCallback", который возвращает ссылку на мемоизированную функцию
+  // 2. Колбек-функция
+  // 2.1. Так как функция "getData" создаётся в теле компонента, она будет, загружать данные при каждом обновлении компонента
+  // 2.2. Чтобы функция не выполнялась каждый раз, она помещается в "useCallback", который возвращает ссылку на мемоизированную функцию
   const getData = useCallback(() => {
     fetch("https://jsonplaceholder.typicode.com/todos/1")
       .then(response => response.json())

@@ -1,68 +1,52 @@
 import { useEffect, useState } from "react";
 
-const App = () => {
-  const [timerId, setTimerId] = useState(null);
-  const [isLaunched, setLaunched] = useState(false);
-  const [count, setCount] = useState(0);
+const getLocalStorageValue = () => {
+  const value = localStorage.getItem("value");
+  return value ? +value : 0;
+}
 
-  
+const App = () => {
+  const [value, setValue] = useState(getLocalStorageValue());
+  const [timer, setTimer] = useState(null);
+
   // Запустить таймер
   const startTimer = () => {
-    const id = setInterval(() => {
-      setCount(count => count + 1);
-    }, 1000)
-
-    setLaunched(true);
-    setTimerId(id);
-
-    localStorage.setItem("isLaunched", "true");
+    if (timer) return;
+    const id = setInterval(() => setValue(prevValue => prevValue + 1), 1000);
+    setTimer(id);
   }
-
-
+  
   // Остановить таймер
   const stopTimer = () => {
-    clearInterval(timerId);
-
-    setLaunched(false);
-    localStorage.setItem("isLaunched", "false");
+    clearInterval(timer);
+    setTimer(null);
   }
-
 
   // Сбросить таймер
   const resetTimer = () => {
-    setCount(0);
-    stopTimer();
+    setValue(0);
   }
+
+  // ComponentDidUpdate
+  useEffect(() => {
+    localStorage.setItem("value", value);
+  }, [value])
 
 
   // ComponentDidMount
   useEffect(() => {
-    if (localStorage.getItem("count")) {
-      setCount(Number(localStorage.getItem("count")));
-    }
-    if (localStorage.getItem("isLaunched") === "true") {
-      startTimer();
-    }
-
+    startTimer();
+    
     // ComponentWillUnmount
-    return () => {
-      stopTimer();
-    }
+    return () => stopTimer();
   }, [])
-
-
-  // ComponentDidUpdate
-  useEffect(() => {
-    localStorage.setItem("count", String(count));
-  }, [count])
 
   
   return (<>
-    <h1>{count}</h1>
-    {!isLaunched
-      ? <button onClick={startTimer}>Start</button>
-      : <button onClick={stopTimer}>Stop</button>}
-    <button onClick={resetTimer}>Reset</button>
+    <h1>{value}</h1>
+    <button type="button" onClick={startTimer}>Start</button>
+    <button type="button" onClick={stopTimer}>Stop</button>
+    <button type="button" onClick={resetTimer}>Reset</button>
   </>)
 }
 

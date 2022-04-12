@@ -57,11 +57,10 @@ class App extends React.Component {
 
   render() {
     return (<>
-      <h1>{this.state.count}</h1>
-      {!this.state.isLaunched
-        ? <button onClick={this.startTimer}>Start</button>
-        : <button onClick={this.stopTimer}>Stop</button>}
-      <button onClick={this.resetTimer}>Reset</button>
+      <h1>{value}</h1>
+      <button type="button" onClick={startTimer}>Start</button>
+      <button type="button" onClick={stopTimer}>Stop</button>
+      <button type="button" onClick={resetTimer}>Reset</button>
     </>)
   }
 }
