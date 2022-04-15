@@ -6,13 +6,13 @@ const getLocalStorageValue = () => {
 }
 
 const App = () => {
-  const [value, setValue] = useState(getLocalStorageValue());
+  const [value, setValue] = useState(getLocalStorageValue);
   const [timer, setTimer] = useState(null);
 
   // Запустить таймер
   const startTimer = () => {
     if (timer) return;
-    const id = setInterval(() => setValue(prevValue => prevValue + 1), 1000);
+    const id = setInterval(() => setValue(prev => prev + 1), 1000);
     setTimer(id);
   }
   
