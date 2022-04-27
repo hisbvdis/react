@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserList, getUser
- } from "./services/MarvelService.js";
+import { getUserList, getUser } from "./services/MarvelService.js";
 
 const App = () => {
   // Состояние для списка пользователей

@@ -2,7 +2,7 @@
 // ИСПОЛЬЗОВАНИЕ ХУКА  (ДЛЯ СОЗДАНИЯ СЕРВИСА В ВИДЕ ХУКА)
 // =====================================================================
 // 0. ИМПОРТИРОВАТЬ ХУК
-import useHttp from "../hooks/http.hook.js";
+import useHttp from "../hooks/useHttp.hook.js";
 
 
 const useJSONService = () => {
