@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { getUserList, getUser } from "./services/MarvelService.js";
+import { getUserList, getUser } from "./services/Marvel.service.js";
 
 const App = () => {
   // Состояние для списка пользователей
   const [userList, setUserList] = useState([]);
-  // После первого рендеринга запустить функцию загрузки списка пользователей
-  useEffect(() => loadUserList(), []);
   // Функция загрузки списка пользователей и обновления состояния
   const loadUserList = () => getUserList().then(data => setUserList(data));
+  // После первого рендеринга вызвать функцию загрузки списка пользователей
+  useEffect(() => loadUserList(), []);
 
   // Состояние для отдельного пользователя
   const [user, setUser] = useState([]);
