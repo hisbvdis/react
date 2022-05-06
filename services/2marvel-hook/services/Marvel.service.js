@@ -20,7 +20,7 @@ const MarvelService = () => {
   // 2. Функция получения данных о пользователе (с помощью "request" из хука)
   const getHeroes = async (count=10, offset=0) => {
     const data = await request(`${baseURL}/characters?${apiKey}&limit=${count}&offset=${offset}`);
-    return data.data.results.map(item => simplifyFormat(item));
+    return data.data.results.map(simplifyFormat);
   }
 
   // 3. Функция, которая преобразует сложные данные из ответа в удобный объект
