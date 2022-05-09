@@ -1,8 +1,8 @@
 // 1. Импортировать зависимости
 // 1.1. Обычные редьюсеры
-import users from "./users.js";
-import filters from "./filters.js";
-import search from "./search.js";
+import { reducer as users } from "./users.js";
+import { reducer as filters } from "./filters.js";
+import { reducer as search } from "./search.js";
 // 1.2. Функция создания комбинированного редьюсера
 import { combineReducers } from "redux";
 

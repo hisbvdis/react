@@ -20,7 +20,7 @@ const initialState = "";
 
 // 3. Редьюсер
 // 3.1. Создать редьюсер
-const search = (state=initialState, action) => {
+const reducer = (state=initialState, action) => {
   switch (action.type) {
     case actionTypes.CHANGE_SEARCH:
       return action.value
@@ -32,7 +32,5 @@ const search = (state=initialState, action) => {
 
 
 // 4. Экспорт
-// 4.1. Именованный экспорт действий
-export { actions };
-// 4.2. Экспорт по умолчанию редьюсера
-export default search;
+// 4.1. Именованный экспорт действий и редьюсера
+export { actions, reducer };

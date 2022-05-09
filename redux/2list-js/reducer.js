@@ -7,14 +7,14 @@ const actionTypes = {
   REMOVE_ITEM: "REMOVE_ITEM",
 }
 
-// 1.2. Добавить действия
+// 1.2. Добавить действия (создаются с помощью функций-создателей действий)
 const actions = {
   addItem: (value) => ({
-    type: actionTypes.ADD,
+    type: actionTypes.ADD_ITEM,
     color: value
   }),
   removeItem: (value) => ({
-    type: actionTypes.REMOVE,
+    type: actionTypes.REMOVE_ITEM,
     color: value
   }),
 }
@@ -46,23 +46,7 @@ const reducer = (state=initialState, action) => {
 
 
 // =============================================================================
-// 4. РАБОТА С ХРАНИЛИЩЕМ
+// 4. Экспорт
 // =============================================================================
-// 4.1. Создать функцию, которая будет вызываться при действиях с хранилищем
-const log = () => {
-  // Функция будет выводить содержимое состояния
-  console.log( store.getState() )
-}
-
-// 4.2. Создать хранилище (подставив редьюсер)
-const store = Redux.createStore(reducer);
-
-// 4.3. Подписаться на изменения хранилища
-// .. При каждом изменении вызывать функцию "log", созданную выше
-store.subscribe(log)
-
-// 4.4. Выполнить действия
-store.dispatch( actions.addItem("blue") );
-store.dispatch( actions.addItem("yellow") );
-store.dispatch( actions.addItem("green") );
-store.dispatch( actions.removeItem("green") );
+// 4.1. Именованный экспорт действий и редьюсера
+export { actions, reducer };
