@@ -2,11 +2,14 @@
 // 1.1. Компонент
 import User from "./User.js";
 // 1.2. Функция подключения к Redux
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 // 2. Компонент
-const List = ({users, search, filters}) => {
+const List = () => {
+  const users = useSelector(state => state.users.list);
+  const search = useSelector(state => state.search);
+  const filters = useSelector(state => state.filters);
   const result = [];
     
   users.forEach(user => {
@@ -38,19 +41,4 @@ const List = ({users, search, filters}) => {
   )
 }
 
-
-// 3. Сопоставить свойства
-// 3.1. Свойствам React-компонента присваиваются значения из Redux-хранилища
-const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  users:   state.users.list,
-  search:  state.search,
-  filters: state.filters
-})
-
-
-
-// 5. Экспорт
-// 5.1. Именованный экспорт обычной версии компонента
-export { List };
-// 5.2. Экспорт по умолчанию версии компонента, соединённого с Redux
-export default connect(mapStateToProps, null)(List);
+export default List;
