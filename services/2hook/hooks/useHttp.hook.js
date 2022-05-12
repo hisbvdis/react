@@ -16,14 +16,13 @@ const useHttp = () => {
   // 2.1. Функция, которая отправляет HTTP-запрос
   // — чтобы не делать лишние запросы, функция мемоизируется (useCallback)
   // — функция асинхронная, так как нужно будет ждать ответы fetch-запросов
-  const request = useCallback(async (url, {method="GET", body=null, headers={}}) => {
-    const newHeaders = {...headers, "Content-Type": "application/json"};
+  const request = useCallback(async (url, method="GET", body=null, headers={}) => {
 
     // Перед отправкой запроса установить статус загрузки в "true"
     setLoading(true);
     // Обработать ошибки в случае неудачного запроса
     try {
-      const response = await fetch(url, {method, body, headers: newHeaders});
+      const response = await fetch(url, {method, body, headers});
       if (!response.ok) {
         throw new Error(`Could not fetch ${url}, status: ${response.status}`);
       }

@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { articles } from "../../data/data.js";
-import NotFound from "../NotFound.js";
+import Page404 from "../Page404.js";
 
 const Article = () => {
   const {id} = useParams();
   const article = articles.find(article => article.id === Number(id));
   if (article === undefined) {
-    return <NotFound/>
+    return <Page404/>
   }
   
   return (<>

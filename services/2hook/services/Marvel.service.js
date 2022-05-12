@@ -17,7 +17,7 @@ const MarvelService = () => {
   // - error — наличие ошибки
   const {request, isLoading, error} = useHttp();
 
-  // 2. Функция получения данных о пользователе (с помощью "request" из хука)
+  // 2. Функция получения данных (с помощью "request" из хука)
   const getHeroes = async (count=10, offset=0) => {
     const data = await request(`${baseURL}/characters?${apiKey}&limit=${count}&offset=${offset}`);
     return data.data.results.map(simplifyFormat);

@@ -1,20 +1,20 @@
-import Home        from"./Home.js";
-import About       from"./About.js";
-import Contact     from"./Contact.js";
-import NotFound    from "./NotFound.js";
+import Home    from "./Home.js";
+import About   from "./About.js";
+import Contact from "./Contact.js";
+import Page404 from "./Page404.js";
 
-import Blog        from"./blog/Blog.js";
-import AllArticles from"./blog/AllArticles.js";
-import Category    from"./blog/Category.js";
-import Article     from"./blog/Article.js";
+import Blog     from "./blog/Blog.js";
+import Articles from "./blog/Articles.js";
+import Category from "./blog/Category.js";
+import Article  from "./blog/Article.js";
 
 export {
   Home,
   About,
   Blog,
-  AllArticles,
+  Articles,
   Category,
   Article,
   Contact,
-  NotFound,
+  Page404,
 };
