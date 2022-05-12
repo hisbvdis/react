@@ -31,10 +31,4 @@ const Filters = ({changeFilters}) => {
   </>)
 }
 
-// 4. Сопоставить функции
-// 4.1. Свойствам React-компонента присваиваются функции из Redux-хранилища
-const mapDispatchToProps = (dispatch) => ({
-  changeFilters:  (name, value) => dispatch(filtersActions.changeFilters(name, value))
-})
-
 export default Filters;
