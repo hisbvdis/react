@@ -32,8 +32,11 @@ const actions = {
 // =============================================================================
 // 2.1. Задать начальное состояние
 const initialState = {
-  list: [],
-  nextId: 0,
+  list: [
+    {id: 0, name: "Roma", promo: true, favorite: false},
+    {id: 1, name: "Vasya", promo: false, favorite: true},
+  ],
+  nextId: 10,
 }
 
 
